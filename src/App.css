@@ -1,38 +1,183 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif; /* Setting a clean, sans-serif font for better readability */
+  background-color: #f5f5f5; /* Light gray background color for the body */
+  color: #333; /* Dark gray text color for better contrast */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Flexbox layout for centering content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh; /* Full height to ensure the page takes up the entire screen */
+}
+
+/* Main container for the app */
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center; /* Center the header */
+  align-items: center; /* Center the header vertically */
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+  background-color: #ffffff; /* White background for the main app container */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Styling for the header section */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #2d3e50; /* Dark blue background for the header */
+  color: white; /* White text color */
+  padding: 30px; /* Padding around the content */
+  border-radius: 15px; /* Rounded corners */
+  width: 85%; /* Set the width to 85% of the parent */
+  max-width: 696px; /* Increased width by 96px (1 inch) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow around the header */
+  text-align: center; /* Center align the text */
+  animation: fadeIn 1s ease-in-out; /* Animation for a fade-in effect */
+}
+
+/* Dashboard title styling */
+.dashboard-title {
+  font-size: 36px; /* Large font size for the title */
+  margin-bottom: 30px; /* Space below the title */
+  font-weight: 700; /* Bold title */
+}
+
+/* Container for the form inputs */
+.form-container {
+  width: 100%; /* Ensure form takes full width inside the container */
+}
+
+/* Styling for the form elements */
+form {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack elements vertically */
+  gap: 20px; /* Space between form elements */
+  animation: slideIn 1s ease-in-out; /* Animation for sliding in the form */
+}
+
+/* Styling for individual input fields */
+.input-group {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  text-align: left; /* Align label to the left */
+  gap: 8px; /* Space between label and input */
+}
+
+/* Specific styling for the file input */
+.input-group.file-input {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start; /* Align items to the left */
 }
 
-.App-link {
-  color: #61dafb;
+/* General styling for input fields and select dropdowns */
+input,
+select {
+  padding: 12px; /* Padding inside input fields */
+  font-size: 16px; /* Font size for text input */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #ccc; /* Light gray border */
+  box-sizing: border-box; /* Ensure padding doesn't affect element width */
+  width: 100%; /* Full width of the parent container */
+  transition: all 0.3s ease; /* Smooth transition for any change in state */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Hide the default file input (use button to select file) */
+input[type='file'] {
+  padding: 10px 0;
+  display: none; /* Hide the default file input */
+}
+
+/* Styling for the 'Choose File' button */
+button.choose-file-button {
+  background-color: #1e90ff; /* Blue background */
+  color: white; /* White text */
+  padding: 12px; /* Padding around the button */
+  font-size: 16px; /* Font size */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effect */
+  margin-left: 0.1cm; /* Small left margin */
+}
+
+/* Hover effect for the 'Choose File' button */
+button.choose-file-button:hover {
+  background-color: #1c75b3; /* Darker blue on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Styling for the submit button */
+button.submit-button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 15px; /* Padding around the button */
+  font-size: 18px; /* Font size */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effect */
+}
+
+/* Hover effect for the submit button */
+button.submit-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* File name display */
+.file-name {
+  font-size: 16px; /* Font size for the file name */
+  margin-left: 10px; /* Space to the left of the file name */
+  color: white; /* White text color */
+  font-weight: 500; /* Medium weight for the file name */
+}
+
+/* Success message for file selection */
+.success-message {
+  color: #4caf50; /* Green color for success message */
+  font-size: 14px; /* Font size for the message */
+  margin-top: 10px; /* Margin at the top */
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Initially invisible */
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1; /* Fully visible at the end */
+  }
+}
+
+/* Keyframe animation for sliding effect */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Start from the left outside */
+  }
+  100% {
+    transform: translateX(0); /* Move to its normal position */
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .App-header {
+    width: 90%; /* Increase the width for smaller screens */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .dashboard-title {
+    font-size: 28px; /* Smaller title font size on mobile */
+  }
+
+  input,
+  select {
+    padding: 10px; /* Smaller padding for input fields */
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  button.submit-button {
+    padding: 12px; /* Smaller padding for submit button */
+    font-size: 16px; /* Smaller font size for submit button */
   }
 }
